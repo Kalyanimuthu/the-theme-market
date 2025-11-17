@@ -1,0 +1,118 @@
+{% load static %}
+<!-- Newsletter Section -->
+<section class="max-w-6xl mx-auto bg-[#1e1b4b] text-white py-16 mt-16">
+  <div class="max-w-3xl mx-auto text-center px-4">
+
+    <!-- Heading -->
+    <h2 class="text-3xl md:text-4xl font-bold mb-4">Stay Updated</h2>
+    
+    <!-- Subtext -->
+    <p class="text-gray-300 mb-6 text-base md:text-xl leading-relaxed">
+      Get the latest themes, exclusive deals, and design inspiration <br class="hidden md:block">
+      delivered to your inbox weekly
+    </p>
+
+    <!-- Email Input + Button -->
+     <div class="flex justify-center items-center space-x-3 max-w-2xl mx-auto">
+    <div class="bg-[#322e67] rounded-xl w-full border border-[#433d8b] focus-within:ring-2 focus-within:ring-[#76C01D] transition">
+      <input type="email"
+             placeholder="Enter your email"
+             class="w-full bg-transparent px-5 py-3 text-white placeholder-gray-400 focus:outline-none">
+    </div>
+      <button class="bg-[#76C01D] hover:bg-[#5ea414] text-white font-semibold px-6 py-3 rounded-lg transition">
+        Subscribe
+      </button>
+    </div>
+    
+
+    <!-- Privacy Text -->
+    <p class="text-gray-400 text-sm mt-5">
+      By subscribing, you agree to our <a href="#" class="underline text-gray-300 hover:text-white">Privacy Policy</a>
+      and consent to receive updates
+    </p>
+
+  </div>
+</section>
+<!-- Testimonials Section -->
+<section class="py-16 bg-white text-center">
+  <!-- Section Title -->
+  <h3 class="inline-block bg-gradient-to-r from-[#3B3EEA] to-[#7A1CAC] text-white font-semibold text-2xl px-6 py-2 rounded-lg mb-4">
+    What Our Customers Say
+  </h3>
+  
+  <p class="text-gray-800 mb-10 text-lg">
+    Join thousands of satisfied customers
+  </p>
+
+  <!-- Testimonials Grid -->
+  <div class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-6">
+    
+    <!-- Testimonial 1 -->
+    <div class="bg-white border border-gray-500 rounded-2xl shadow-lg p-6 transition">
+      <div class="flex flex-col items-center">
+        <div class="flex justify-center items-center space-x-2">
+        <img src="{% static '/images/user1.jpg' %}" alt="Sarah Johnson" class="w-16 h-16 rounded-full mb-3 object-cover">
+        <h4 class="font-semibold text-lg text-gray-800">Sarah Johnson <br/>
+          <span class="font-medium text-base text-gray-800">Web Developer</span></h4>
+        </div>
+        <div class="text-yellow-400 mt-2 mb-4 flex">
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+        </div>
+        <p class="text-gray-900 text-md leading-relaxed">
+          The quality of themes on this marketplace is outstanding.
+          I've built over 20 client sites using templates from here
+          and they never disappoint.
+        </p>
+      </div>
+    </div>
+
+    <!-- Testimonial 2 -->
+    <div class="bg-white border border-gray-500 rounded-2xl shadow-lg p-6 transition">
+      <div class="flex flex-col items-center">
+        <div class="flex justify-center items-center space-x-2">
+        <img src="{% static '/images/user2.jpg' %}" alt="Michael Chen" class="w-16 h-16 rounded-full mb-3 object-cover">
+        <h4 class="font-semibold text-lg text-gray-800">Michael Chen <br/>
+          <span class="font-medium text-base text-gray-800">Agency Owner</h4>
+            </div>
+        <div class="text-yellow-400 mt-2 mb-4 flex">
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+        </div>
+        <p class="text-gray-900 text-md leading-relaxed">
+          As an agency, we rely on high-quality templates to deliver projects quickly.
+          The variety and quality here are unmatched in the industry.
+        </p>
+      </div>
+    </div>
+
+    <!-- Testimonial 3 -->
+    <div class="bg-white border border-gray-500 rounded-2xl shadow-lg p-6 transition">
+      <div class="flex flex-col items-center">
+        <div class="flex justify-center items-center space-x-2">
+        <img src="{% static '/images/user3.jpg' %}" alt="Emily Rodriguez" class="w-16 h-16 rounded-full mb-3 object-cover">
+        <h4 class="font-semibold text-lg text-gray-800">Emily Rodriguez <br/>
+          <span class="font-medium text-base text-gray-800">Freelance Designer</h4>
+            </div>
+        <div class="text-yellow-400 mt-2 mb-4 flex">
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+        </div>
+        <p class="text-gray-900 text-md leading-relaxed">
+          I love how easy it is to customize these themes.
+          The documentation is excellent and the support from authors is fantastic.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>

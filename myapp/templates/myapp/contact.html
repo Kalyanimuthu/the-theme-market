@@ -1,0 +1,167 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Home - ThemeMarket{% endblock %}
+
+{% block content %}
+{% include "myapp/components/about_hero.html" with page_title="We’d Love to Hear From You" show_search=True %}
+
+<!-- Get In Touch -->
+
+    <h2 class="text-center text-3xl font-bold text-[#13157c] mt-8 mb-8">
+        Get In Touch
+    </h2>
+
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
+    {% for item in cards %}
+    <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-200 text-center">
+        <div class="w-20 h-20 rounded-full bg-[#C6E7FF] flex items-center justify-center mx-auto mb-4">
+            <i class="fa-solid fa-{{ item.icon }} text-3xl text-[#0A3574]"></i>
+        </div>
+
+        <h3 class="font-semibold text-lg text-[#0A3574]">{{ item.title }}</h3>
+        <p class="text-gray-600 mt-1">{{ item.line1 }}</p>
+        <p class="text-gray-800 mt-1">{{ item.line2 }}</p>
+    </div>
+    {% endfor %}
+</div>
+
+<!-- Send Us a Message -->
+   <section class="max-w-4xl mx-auto mt-20 px-4">
+
+    <h2 class="text-3xl font-bold text-center text-[#0A3574]">Send Us a Message</h2>
+    <p class="text-center text-gray-600 mt-2">
+        Fill out the form below and we'll get back to you as soon as possible.
+    </p>
+
+    <form method="POST" class="mt-12 space-y-8">
+        {% csrf_token %}
+
+        <!-- First + Last Name -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+                <label class="block text-sm font-semibold mb-2">First Name</label>
+                <input type="text" name="first_name"
+                       class="w-full bg-[#8AD9FF] rounded-md shadow-md h-12 px-4 outline-none"
+                       placeholder="">
+            </div>
+
+            <div>
+                <label class="block text-sm font-semibold mb-2">Last Name</label>
+                <input type="text" name="last_name"
+                       class="w-full bg-[#8AD9FF] rounded-md shadow-md h-12 px-4 outline-none"
+                       placeholder="">
+            </div>
+        </div>
+
+        <!-- Email -->
+        <div>
+            <label class="block text-sm font-semibold mb-2">Email Address</label>
+            <input type="email" name="email"
+                   class="w-full bg-[#8AD9FF] rounded-md shadow-md h-12 px-4 outline-none"
+                   placeholder="">
+        </div>
+
+        <!-- Message Box -->
+        <div>
+            <label class="block text-sm font-semibold mb-2">Message</label>
+            <textarea name="message" rows="5"
+                      class="w-full bg-[#8AD9FF] rounded-md shadow-md p-4 outline-none"></textarea>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit"
+                class="bg-[#76C01D] text-white font-medium px-8 py-3 rounded-md shadow-md hover:shadow-lg transition">
+            Send Message
+        </button>
+
+    </form>
+    </section>
+
+
+
+
+<!-- FAQ -->
+<section class="max-w-4xl mx-auto mt-20">
+
+    <!-- Heading -->
+    <div class="text-center mb-10">
+        <h2 class="text-3xl font-bold text-[#0A3574]">Frequently Asked Questions</h2>
+        <p class="text-gray-600 mt-2">Quick answers to common questions</p>
+    </div>
+
+    <!-- FAQ List -->
+    <div class="space-y-3">
+        {% for faq in faqs %}
+        <div class="faq-item rounded-md overflow-hidden shadow-sm">
+            <button class="faq-toggle w-full flex justify-between items-center px-5 py-4 
+                           text-white font-medium bg-gradient-to-r from-[#030d6b] to-[#c91a6f]">
+                <span>{{ faq.question }}</span>
+                <i class="fa-solid fa-chevron-down transition"></i>
+            </button>
+
+            <div class="faq-content max-h-0 overflow-hidden text-white font-medium bg-gradient-to-r from-[#030d6b] to-[#c91a6f] transition-all duration-300">
+                <div class="p-5">
+                    {{ faq.answer }}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- Footer CTA -->
+    <div class="text-center mt-12 mb-10">
+        <p class="text-gray-700 mb-6">Still have questions?</p>
+
+        <a href="#" 
+           class="bg-white border border-gray-300 px-6 py-3 rounded-lg shadow-md hover:shadow-lg transition">
+            Visit help Center
+        </a>
+    </div>
+</section>
+
+<section class="max-w-3xl mx-auto mb-10">
+
+    <div class="rounded-3xl p-12 text-center shadow-xl
+                bg-gradient-to-r from-[#030d6b] to-[#A31B72] text-white">
+
+        <div class="flex justify-center mb-6">
+            <div class="bg-white/20 p-3 rounded-full">
+                <i class="fa-solid fa-check text-[#76C01D] text-2xl"></i>
+            </div>
+        </div>
+
+        <h2 class="text-3xl font-bold mb-4">
+            We're Here to Help
+        </h2>
+
+        <p class="text-lg text-gray-200 max-w-3xl mx-auto mb-10">
+            Our dedicated support team is committed to providing you with the best experience.
+            Whether you need technical assistance, have sales questions, or just want to say hello,
+            we're always happy to hear from you.
+        </p>
+
+        <div class="flex items-center justify-center gap-10 flex-wrap">
+
+            <div class="flex items-center gap-2 text-white">
+                <i class="fa-solid fa-check text-[#76C01D]"></i>
+                <span class="text-sm">24-hour response time</span>
+            </div>
+
+            <div class="flex items-center gap-2 text-white">
+                <i class="fa-solid fa-check text-[#76C01D]"></i>
+                <span class="text-sm">Expert support team</span>
+            </div>
+
+            <div class="flex items-center gap-2 text-white">
+                <i class="fa-solid fa-check text-[#76C01D]"></i>
+                <span class="text-sm">Multiple contact options</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

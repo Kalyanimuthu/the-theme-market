@@ -1,0 +1,270 @@
+{% extends "base.html" %}
+{% block content %}
+
+<section class="max-w-7xl mx-auto px-4 py-10">
+
+    <h1 class="text-2xl font-bold mb-6">Secure Checkout</h1>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+        <!-- LEFT SECTION -->
+        <div class="lg:col-span-2">
+
+            <!-- STEP 1: CONTACT + SHIPPING -->
+            <div id="step1" class="space-y-10">
+
+                <!-- CONTACT DETAILS -->
+                <div class="border rounded-xl p-6 shadow bg-white">
+                    <h2 class="text-lg font-semibold mb-4">Contact Details</h2>
+
+                    <div class="grid grid-cols-2 gap-4">
+
+                        <!-- First Name -->
+                        <div>
+                            <input id="firstName" type="text" placeholder="First Name" class="border p-3 rounded-md w-full">
+                            <p class="text-red-500 text-sm hidden" id="err_firstName">First name is required</p>
+                        </div>
+
+                        <!-- Last Name -->
+                        <div>
+                            <input id="lastName" type="text" placeholder="Last Name" class="border p-3 rounded-md w-full">
+                            <p class="text-red-500 text-sm hidden" id="err_lastName">Last name is required</p>
+                        </div>
+
+                        <!-- Email -->
+                        <div class="col-span-2">
+                            <input id="email" type="email" placeholder="Email" class="border p-3 rounded-md w-full">
+                            <p class="text-red-500 text-sm hidden" id="err_email">Enter a valid email</p>
+                        </div>
+
+                        <!-- Phone -->
+                        <div class="col-span-2">
+                            <input id="phone" type="text" placeholder="Phone Number" class="border p-3 rounded-md w-full">
+                            <p class="text-red-500 text-sm hidden" id="err_phone">Enter a valid phone number</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- SHIPPING DETAILS -->
+                <div class="border rounded-xl mt-12 p-6 shadow bg-white">
+                    <h2 class="text-lg font-semibold mb-4">Shipping Details</h2>
+
+                    <div class="grid grid-cols-2 gap-4">
+
+                        <div class="col-span-2">
+                            <input id="flat" type="text" placeholder="Flat/House No." class="border p-3 rounded-md w-full">
+                            <p class="text-red-500 text-sm hidden" id="err_flat">Enter Flat/House No.</p>
+                        </div>
+
+                        <div class="col-span-2">
+                            <input id="address" type="text" placeholder="Address" class="border p-3 rounded-md w-full">
+                            <p class="text-red-500 text-sm hidden" id="err_address">Address is required</p>
+                        </div>
+
+                        <div>
+                            <input id="city" type="text" placeholder="City" class="border p-3 rounded-md w-full">
+                            <p class="text-red-500 text-sm hidden" id="err_city">City is required</p>
+                        </div>
+
+                        <div>
+                            <input id="state" type="text" placeholder="State" class="border p-3 rounded-md w-full">
+                            <p class="text-red-500 text-sm hidden" id="err_state">State is required</p>
+                        </div>
+
+                        <div>
+                            <input id="pincode" type="text" placeholder="Postal Code" class="border p-3 rounded-md w-full">
+                            <p class="text-red-500 text-sm hidden" id="err_pincode">Enter valid postal code</p>
+                        </div>
+
+                        <div>
+                            <input id="landmark" type="text" placeholder="Famous Landmark" class="border p-3 rounded-md w-full">
+                        </div>
+
+                    </div>
+
+                    <button id="continueBtn" 
+                        class="bg-[#76C01D] text-white px-8 py-2 mt-5 rounded-md shadow hover:shadow-lg transition">
+                        Continue
+                    </button>
+                </div>
+
+            </div>
+
+            <!-- STEP 2: PAYMENT SECTION (HIDDEN INITIALLY) -->
+            <!-- STEP 2: PAYMENT SECTION -->
+<div id="step2" class="hidden">
+
+    <div class="bg-white border rounded-xl p-6 shadow">
+
+        <h2 class="text-xl font-semibold mb-6">Select Payment Method</h2>
+
+        <!-- CREDIT / DEBIT CARD OPTION -->
+        <label class="flex items-start gap-3 cursor-pointer mb-6">
+            <input type="radio" name="payment" class="mt-1 w-4 h-4 text-purple-600 focus:ring-purple-600">
+            <div class="flex-1">
+                <p class="font-medium text-gray-900">Credit/Debit Cards</p>
+                <p class="text-sm text-gray-500">Pay with your Credit / Debit Card</p>
+            </div>
+
+            <!-- Logos -->
+            <div class="flex items-center gap-1">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Visa_Logo.png" class="h-5">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/b/b7/MasterCard_Logo.svg" class="h-5">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Maestro_logo.png" class="h-5">
+            </div>
+        </label>
+
+
+        <!-- CARD INPUTS -->
+        <div class="grid grid-cols-3 gap-4 pl-7 mb-8">
+
+            <!-- Card Number -->
+            <div class="col-span-3 relative">
+                <input type="text"
+                       placeholder="Card Number"
+                       class="w-full border rounded-md p-3 pl-10 focus:ring-1 focus:ring-purple-600">
+                <span class="absolute left-3 top-3 text-gray-400 text-lg">💳</span>
+            </div>
+
+            <!-- Expiry -->
+            <div class="relative">
+                <input type="text" placeholder="MM / YY"
+                       class="w-full border rounded-md p-3 pl-10 focus:ring-1 focus:ring-purple-600">
+                <span class="absolute left-3 top-3 text-gray-400">📅</span>
+            </div>
+
+            <!-- CVV -->
+            <div class="relative">
+                <input type="text" placeholder="CVV"
+                       class="w-full border rounded-md p-3 pl-10 focus:ring-1 focus:ring-purple-600">
+                <span class="absolute left-3 top-3 text-gray-400">🔒</span>
+            </div>
+
+        </div>
+
+
+        <!-- BANK TRANSFER -->
+        <label class="flex items-start gap-3 cursor-pointer mb-6">
+            <input type="radio" name="payment" class="mt-1 w-4 h-4 text-purple-600 focus:ring-purple-600">
+            <div>
+                <p class="font-medium text-gray-900">Direct Bank Transfer</p>
+                <p class="text-sm text-gray-500">Make payment directly through bank account.</p>
+            </div>
+        </label>
+
+        <!-- OTHER PAYMENT METHODS -->
+        <label class="flex items-start gap-3 cursor-pointer mb-8">
+            <input type="radio" name="payment" class="mt-1 w-4 h-4 text-purple-600 focus:ring-purple-600">
+            <div class="flex-1">
+                <p class="font-medium text-gray-900">Other Payment Methods</p>
+                <p class="text-sm text-gray-500">Make payment through Gpay, Paypal, Phonepay etc</p>
+            </div>
+
+            <div class="flex items-center gap-2">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/UPI-Logo-vector.svg" class="h-6">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Paypal_2014_logo.png" class="h-5">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Google_Pay_Logo.svg" class="h-5">
+            </div>
+        </label>
+
+
+        <!-- BUTTONS -->
+        <div class="flex items-center justify-between">
+
+            <!-- Back -->
+            <button id="backBtn"
+                    class="px-6 py-2 rounded-md border shadow-sm bg-white hover:bg-gray-100">
+                Back
+            </button>
+
+            <!-- Pay Securely -->
+            <button id="payNowBtn"
+        class="px-8 py-2 rounded-md shadow bg-[#76C01D] text-white font-medium hover:shadow-lg">
+    Pay Securely
+</button>
+
+
+        </div>
+
+    </div>
+
+</div>
+
+
+        </div>
+
+        <!-- RIGHT SUMMARY — unchanged -->
+        <div class="h-fit">
+            {% include "myapp/order_summary.html" %}
+        </div>
+
+    </div>
+</section>
+<!-- PAYMENT SUCCESS MODAL -->
+<div id="paymentModal"
+     class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center z-50">
+
+    <div class="bg-white rounded-2xl p-8 w-[90%] max-w-lg shadow-xl animate-fadeIn">
+
+        <!-- Success Icon -->
+        <div class="flex justify-center mb-4">
+            <img src="https://cdn-icons-png.flaticon.com/512/845/845646.png"
+                 class="w-24 h-24 drop-shadow">
+        </div>
+
+        <!-- Title -->
+        <h2 class="text-2xl font-bold text-center">Payment Successful</h2>
+        <p class="text-center text-gray-600 mt-1">
+            Successful Paid <span class="font-semibold">US$ {{ total }}</span>
+        </p>
+
+        <!-- Payment Details -->
+        <h3 class="mt-6 mb-3 font-semibold text-gray-700">Payment Details</h3>
+
+        <div class="bg-gray-50 border rounded-2xl p-5 space-y-3">
+
+            <div class="flex justify-between text-sm">
+                <span class="text-gray-600 font-medium">Transaction ID</span>
+                <span id="txnId" class="font-semibold"></span>
+            </div>
+
+            <div class="flex justify-between text-sm">
+                <span class="text-gray-600 font-medium">Date</span>
+                <span id="txnDate" class="font-semibold"></span>
+            </div>
+
+            <div class="flex justify-between text-sm">
+                <span class="text-gray-600 font-medium">Type of Transaction</span>
+                <span class="font-semibold">Credit Card</span>
+            </div>
+
+            <div class="flex justify-between text-sm">
+                <span class="text-gray-600 font-medium">Amount</span>
+                <span class="font-semibold">US$ {{ total }}</span>
+            </div>
+
+            <div class="flex justify-between text-sm">
+                <span class="text-gray-600 font-medium">Tax%</span>
+                <span class="font-semibold">$90</span>
+            </div>
+
+            <div class="flex justify-between text-sm">
+                <span class="text-gray-600 font-medium">Status</span>
+                <span class="text-green-600 font-semibold">Success</span>
+            </div>
+
+        </div>
+
+        <!-- Button -->
+        <div class="flex justify-center mt-6">
+            <a href="{% url 'home' %}"
+               class="px-6 py-2 bg-[#76C01D] text-white rounded-md shadow hover:shadow-lg">
+                Back to Home
+            </a>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}ThemeMarket{% endblock %}</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="{% static '/css/styles.css' %}">
+  
+
+</head>
+<body class="text-gray-800 flex flex-col min-h-screen">
+
+  {% include "includes/navbar.html" %}
+
+  
+  <main class="flex-1">
+    {% block content %}{% endblock %}
+  </main>
+
+  {% include "includes/footer.html" %}
+  {% include "includes/signin_modal.html" %}
+  {% include "includes/addcart.html" %}
+    <script src="{% static 'js/main.js' %}"></script>
+
+  
+</body>
+</html>

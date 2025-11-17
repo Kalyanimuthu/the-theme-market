@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Home - ThemeMarket{% endblock %}
+
+{% block content %}
+{% include "myapp/components/about_hero.html" with page_title="Empowering Creators Worldwide" show_search=True %}
+
+<!-- Save on UI Templates -->
+<section class="py-12">
+    <h2 class="text-center text-3xl font-bold text-[#13157c] mb-8">
+        Save on UI Templates
+    </h2>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+
+        {% for item in ui %}
+            {% include "myapp/components/card.html" with icon=item.icon title=item.title description=item.description%}
+        {% endfor %}
+
+    </div>
+<!-- Our Core Values -->
+    <h2 class="text-center mt-10 text-3xl font-bold text-[#13157c] mb-2">
+        Our Core Values
+    </h2>
+    <p class="text-gray-900 text-center text-md mb-10">
+            The principles that guide everything we do
+    </p>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+
+        {% for item in core %}
+            {% include "myapp/components/card.html" with icon=item.icon title=item.title description=item.description%}
+        {% endfor %}
+
+    </div>
+<!-- Meet Our Team -->
+    <h2 class="text-center mt-10 text-3xl font-bold text-[#13157c] mb-2">
+        Meet Our Team
+    </h2>
+    <p class="text-gray-900 text-center text-md mb-10">
+            The passionate people behind the platform
+    </p>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-2xl mx-auto">
+
+        {% for member in team  %}
+            {% include "myapp/components/team_card.html" with member=member%}
+        {% endfor %}
+
+    </div>
+</section>
+
+<!-- Ready to Start Creating -->
+ <section class="max-w-3xl mx-auto mb-10">
+
+    <div class="bg-[#1F1A4B] text-white rounded-3xl p-12 text-center shadow-xl">
+
+        <h2 class="text-3xl font-bold mb-4">
+            Ready to Start Creating?
+        </h2>
+
+        <p class="text-lg text-gray-200 max-w-3xl mx-auto mb-8">
+            Join thousands of designers and developers who trust our platform to build
+            amazing websites. Get started today.
+        </p>
+
+        <div class="flex items-center justify-center gap-6">
+
+            <!-- Green Button -->
+            <a href="#"
+               class="bg-[#76C01D] text-white font-medium px-6 py-3 rounded-lg shadow-md hover:shadow-lg transition">
+                Browse Templates
+            </a>
+
+            <!-- White Button -->
+            <a href="#"
+               class="bg-white text-[#1F1A4B] font-medium px-6 py-3 rounded-lg shadow-md hover:shadow-lg transition">
+                Contact
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

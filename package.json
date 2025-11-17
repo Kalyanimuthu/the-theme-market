@@ -1,0 +1,15 @@
+{
+  "name": "the-theme-market",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "tailwindcss -i ./src/styles.css -o ./myapp/static/css/styles.css --watch",
+    "build": "tailwindcss -i ./src/styles.css -o ./myapp/static/css/styles.css --minify"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.22",
+    "concurrently": "^9.2.1",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^3.4.10"
+  }
+}

@@ -1,0 +1,64 @@
+<nav class="top-0 left-0 w-full bg-[#431A97] text-white shadow-md z-50">
+  <div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-10">
+
+    <!-- Logo -->
+    <h1 class="text-2xl italic font-extrabold tracking-wide text-white">
+      Thememarket
+    </h1>
+
+    <!-- Navigation Links -->
+    <ul class="hidden md:flex space-x-10 font-semibold text-gray-300">
+      <li>
+        <a href="{% url 'home' %}" 
+           class="hover:text-white hover:border-b-4 border-[#76C01D] pb-1 transition duration-200 {% if request.path == '/' %}border-b-4 border-[#76C01D] text-white{% endif %}">
+           Home
+        </a>
+      </li>
+      <li>
+        <a href="{% url 'theme' %}" 
+           class="hover:text-white hover:border-b-4 border-[#76C01D] pb-1 transition duration-200 {% if request.path == '/themes' %}border-b-4 border-[#76C01D] text-white{% endif %}">
+           Themes
+        </a>
+      </li>
+      <li>
+        <a href="{% url 'templates' %}" 
+           class="hover:text-white hover:border-b-4 border-[#76C01D] pb-1 transition duration-200 {% if request.path == '/templates' %}border-b-4 border-[#76C01D] text-white{% endif %}">
+           Templates
+        </a>
+      </li>
+      <li>
+        <a href="{% url 'about' %}" 
+           class="hover:text-white hover:border-b-4 border-[#76C01D] pb-1 transition duration-200 {% if request.path == '/about' %}border-b-4 border-[#76C01D] text-white{% endif %}">
+           About Us
+        </a>
+      </li>
+      <li>
+        <a href="{% url 'contact' %}" 
+           class="hover:text-white hover:border-b-4 border-[#76C01D] pb-1 transition duration-200 {% if request.path == '/contact' %}border-b-4 border-[#76C01D] text-white{% endif %}">
+           Contact
+        </a>
+      </li>
+    </ul>
+
+    <!-- Right Icons -->
+    <div class="flex items-center space-x-6">
+      <!-- Profile Icon -->
+      <a href="javascript:void(0)" 
+   onclick="openModal()" class="text-[#76C01D] hover:scale-110 transition-transform duration-200">
+        <i class="fa-solid fa-user text-xl border-2 border-[#76C01D] px-3 py-2 rounded-full"></i>
+      </a>
+
+      <!-- Cart Icon -->
+      <a href="{% url 'cart' %}" class="relative text-[#76C01D] hover:scale-110 transition-transform duration-200">
+        <i class="fa-solid fa-cart-shopping text-xl"></i>
+        {% if cart_count > 0 %}
+    <span class="absolute -top-2 -right-2 bg-red-500 text-white text-xs 
+                 w-5 h-5 rounded-full flex items-center justify-center">
+        {{ cart_count }}
+    </span>
+    {% endif %}
+      </a>
+    </div>
+
+  </div>
+</nav>

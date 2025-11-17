@@ -1,0 +1,43 @@
+{%load static%}
+<!-- Include fonts in base.html -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- HERO SECTION -->
+<section class="relative h-[380px] md:h-[450px] w-full font-poppins">
+
+    <!-- Background -->
+    <div class="absolute inset-0">
+        <img src="{% static 'images/hero-bg.jpg' %}" 
+             class="w-full h-full object-cover" alt="Hero Background">
+
+        
+    </div>
+
+    <!-- Content -->
+    <div class="relative z-10 max-w-3xl mx-auto h-full flex flex-col items-center justify-end py-10 text-center px-4">
+
+        <!-- Page Title -->
+        <h1 class="text-white text-2xl md:text-4xl font-extrabold mb-6 drop-shadow-md tracking-wide">
+            {{ page_title }}
+        </h1>
+
+        <!-- Search Bar (Home Only) -->
+        {% if show_search %}
+        <div class="flex items-center justify-center bg-white shadow-md border border-black 
+                  rounded-lg p-3 w-full max-w-md">
+        <i class="fa-solid fa-magnifying-glass text-lg text-gray-400"></i>
+
+        <input type="text"
+               placeholder="Search for WordPress, E commerce...."
+               class="flex-grow px-3 py-3 text-gray-700 focus:outline-none text-center">
+
+        <button class="bg-[#76C01D] text-white font-semibold px-6 py-3 
+                       rounded-lg hover:bg-green-600 transition">
+          Search
+        </button>
+      </div>
+        {% endif %}
+
+    </div>
+
+</section>

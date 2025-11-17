@@ -1,0 +1,231 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Home - ThemeMarket{% endblock %}
+
+{% block content %}
+<section class="sm:px-5 bg-gray-100">
+{% include "myapp/components/hero_section.html" %}
+
+<!-- Category Section -->
+<section class="py-20 bg-gray-100">
+    <div class="max-w-6xl mx-auto text-center">
+
+        <!-- TITLE -->
+        <span class="inline-block px-8 py-2 bg-gradient-to-r from-purple-500 to-blue-500 
+                       text-white font-semibold text-2xl rounded-lg shadow-lg mb-4">
+            Browse by Category
+        </span>
+
+        <p class="text-gray-900 text-md mb-10">
+            Find the perfect template for your project
+        </p>
+
+        
+
+        <!-- GRID -->
+{% include "myapp/components/theme_category.html" %}        
+
+    </div>
+</section>
+
+<!-- Featured WordPress Theme -->
+<section class="bg-gray-100 pb-16">
+    <div class="max-w-6xl mx-auto text-center">
+
+        <!-- TITLE -->
+        <span class="inline-block px-8 py-2 bg-gradient-to-r from-purple-500 to-blue-500 
+                       text-white font-semibold text-2xl rounded-lg shadow-lg mb-4">
+            Featured WordPress Themes
+        </span>
+
+        <p class="text-gray-900 text-md">
+            Every week, our staff personally hand-pick some of the
+            <br/>best new website themes from our collection.
+        </p>
+        <div class="flex flex-end justify-end pb-10">
+        <a href="{% url 'theme' %}"
+               class="bg-lime-500 hover:bg-lime-600 text-white font-medium 
+                      px-6 py-2 rounded-lg shadow-md transition">
+                View all Featured Themes
+            </a>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
+        {% for theme in featured %}
+        {% include "myapp/components/featured_wordpress.html" %}
+        {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Trending Collections -->
+<section class="bg-gray-100 pb-16">
+    <div class="max-w-6xl mx-auto text-center">
+
+        <!-- TITLE -->
+        <span class="inline-block px-8 py-2 bg-gradient-to-r from-purple-500 to-blue-500 
+                       text-white font-semibold text-2xl rounded-lg shadow-lg mb-4">
+            Trending Collections
+        </span>
+
+        <p class="text-gray-900 text-md">
+            Curated collections from our experts
+        </p>
+{% include "myapp/components/trending_collections.html" %}
+</section>
+
+<!-- Stats Section -->
+ <section class="bg-gradient-to-r from-[#5A3FFD] to-[#B845E5] text-white py-4">
+    <div class="max-w-7xl mx-auto text-center px-4">
+
+        <!-- Heading -->
+        <h2 class="text-3xl font-semibold">Trusted by Millions Worldwide</h2>
+        <p class="mt-2 text-lg opacity-90">
+            Join the largest digital marketplace community
+        </p>
+
+        <!-- Stats Row -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-10 mt-12">
+
+            <!-- Stat 1 -->
+            <div>
+                <p class="text-4xl font-bold">12M+</p>
+                <p class="mt-2 text-lg opacity-90">Community Members</p>
+            </div>
+
+            <!-- Stat 2 -->
+            <div>
+                <p class="text-4xl font-bold">50K+</p>
+                <p class="mt-2 text-lg opacity-90">Digital Products</p>
+            </div>
+
+            <!-- Stat 3 -->
+            <div>
+                <p class="text-4xl font-bold">500M+</p>
+                <p class="mt-2 text-lg opacity-90">Total Downloads</p>
+            </div>
+
+            <!-- Stat 4 -->
+            <div>
+                <p class="text-4xl font-bold">15K+</p>
+                <p class="mt-2 text-lg opacity-90">Elite Authors</p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- Best Seller Section -->
+<section class="py-8 bg-[#F5F7FF]">
+    <div class="max-w-6xl mx-auto text-center">
+
+        <!-- Heading -->
+        <h2 class="text-3xl font-bold bg-gradient-to-r from-[#5A3FFD] to-[#B845E5] text-transparent bg-clip-text">
+            Best Sellers
+        </h2>
+        <p class="text-gray-900 text-lg mt-2">Top selling items this period</p>
+
+        <!-- Toggle Buttons -->
+<div class="flex justify-center mt-8 mb-6">
+    <div class="bg-gray-200 rounded-full flex shadow-lg px-1 py-1 w-[320px] relative">
+
+        <!-- WEEK Button -->
+        <button id="btn-week"
+                class="w-1/2 py-2 rounded-full text-sm font-semibold transition-all duration-300
+                       bg-lime-500 text-white">
+            This Week
+        </button>
+
+        <!-- MONTH Button -->
+        <button id="btn-month"
+                class="w-1/2 py-2 rounded-full text-sm font-semibold transition-all duration-300
+                       text-gray-700">
+            This Month
+        </button>
+
+    </div>
+</div>
+
+
+        <!-- Cards Container -->
+        <div id="week-container">
+          <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
+            {% for theme in week_items %}
+              {% include "myapp/components/featured_wordpress.html" with theme=theme %}
+            {% endfor %}
+          </div>
+        </div>
+
+        <div id="month-container" class="hidden">
+          <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
+            {% for theme in month_items %}
+              {% include "myapp/components/featured_wordpress.html" with theme=theme %}
+            {% endfor %}
+          </div>
+        </div>
+    </div>
+
+</section>
+
+<!-- New Arrivals -->
+<section class="bg-gray-100 py-16">
+    <div class="max-w-6xl mx-auto text-center">
+
+        <!-- TITLE -->
+        <span class="inline-block px-8 py-2 bg-gradient-to-r from-purple-500 to-blue-500 
+                       text-white font-semibold text-2xl rounded-lg shadow-lg mb-4">
+            New Arrivals
+        </span>
+
+        <p class="text-gray-900 mb-10 text-md">
+            Fresh templates added this week
+        </p>
+        <div class="flex flex-end justify-end pb-10">
+        <a href="{% url 'theme' %}"
+               class="text-lime-500 mr-10 text-lg font-medium">
+                View all
+            </a>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
+        {% for theme in new_items %}
+              {% include "myapp/components/featured_wordpress.html" with theme=theme %}
+        {% endfor %}
+        </div>
+</section>
+
+
+<!-- Why Choose Us -->
+<section class="py-20 bg-gray-100">
+    <div class="max-w-6xl mx-auto text-center">
+
+        <!-- TITLE -->
+        <span class="inline-block px-8 py-2 bg-gradient-to-r from-purple-500 to-blue-500 
+                       text-white font-semibold text-2xl rounded-lg shadow-lg mb-4">
+            Why Choose Our Marketplace
+        </span>
+
+        <p class="text-gray-900 text-md mb-10">
+            Everything you need to build amazing websites
+        </p>
+
+        
+
+        <!-- GRID -->
+         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-7xl mx-auto">
+    
+    {% for item in why_items %}
+      {% include "myapp/components/card.html" with icon=item.icon title=item.title description=item.description%}
+    {% endfor %}
+
+</div>
+
+
+    </div>
+</section>
+
+{% include "myapp/components/newsletter.html" %}
+</section>
+<!-- EXTERNAL SCRIPT -->
+<script src="{% static 'js/best_sellers.js' %}"></script>
+{% endblock %}

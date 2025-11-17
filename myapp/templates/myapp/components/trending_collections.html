@@ -1,0 +1,46 @@
+{% load static %}
+<div class="max-w-6xl mx-auto pt-6 px-4">
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+        {% for s in showcase %}
+
+        <div class="relative overflow-hidden rounded-2xl shadow-lg group 
+                    transition-all duration-300 bg-white">
+
+            <!-- IMAGE (moves upward on hover) -->
+            <img src="{{ s.image.url }}" 
+                 class="w-full h-52 object-cover transform group-hover:-translate-y-6 
+                        transition-all duration-300">
+
+            <!-- TEXT BOX (hidden → slides up on hover) -->
+            <div class="absolute text-left bottom-0 left-0 right-0 bg-white 
+                        opacity-0 group-hover:opacity-100 
+                        translate-y-6 group-hover:translate-y-0
+                        transition-all duration-300 p-1">
+
+                <!-- Title -->
+                <h3 class="text-lg font-semibold text-gray-900">
+                    {{ s.title }}
+                </h3>
+
+                <!-- Description -->
+                <p class="text-gray-500 text-sm">
+                    {{ s.description }}
+                </p>
+
+                <!-- Items Badge -->
+                <span class="inline-block bg-lime-500 text-white text-xs 
+                             px-3 py-1 rounded-full shadow">
+                    {{ s.item_count }} Items
+                </span>
+
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+    </div>

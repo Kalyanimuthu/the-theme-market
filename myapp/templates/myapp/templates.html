@@ -1,0 +1,118 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Home - ThemeMarket{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+ 
+<section class="bg-gray-50">
+  <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 px-6 items-center">
+
+    <!-- LEFT COLUMN -->
+     <div class="flex justify-center">
+    <div class="flex flex-col items-center md:items-start text-center md:text-left justify-center">
+      
+      <h2 class="text-4xl text-center md:text-5xl font-extrabold mb-6 
+                 text-transparent bg-clip-text bg-gradient-to-r from-[#3B3EEA] to-[#7A1CAC]">
+        Templates & UI Kits
+      </h2>
+
+      <p class="text-gray-700 text-center text-lg leading-relaxed max-w-md mb-6">
+        Browse our collection of premium HTML templates, landing pages, and UI kits.
+        Built with modern frameworks and ready to customize for your next project.
+      </p>
+
+      <!-- Search Bar -->
+      <div class="flex items-center bg-white shadow-md border border-gray-300 rounded-lg 
+                  w-full max-w-md p-3">
+        <i class="fa-solid fa-magnifying-glass text-gray-400 text-lg"></i>
+
+        <input 
+          type="text" 
+          placeholder="Search for WordPress, E commerce..." 
+          class="flex-grow px-3 py-2 focus:outline-none text-gray-700">
+
+        <button class="bg-[#76C01D] text-white font-semibold px-6 py-2 rounded-lg hover:bg-green-600">
+          Search
+        </button>
+      </div>
+    </div>
+</div>
+    <!-- RIGHT IMAGES WITH OVERLAP -->
+    <div class="relative w-full flex justify-center pb-28">
+
+      <!-- Top Image -->
+      <img 
+        src="{% static '/images/template-hereo1.png' %}"
+        class="rounded-2xl shadow-lg w-[80%] md:w-[60%]"
+      >
+
+      <!-- Bottom / Overlapping Image -->
+      <img 
+        src="{% static '/images/theme9.jpg' %}"
+        class="rounded-2xl shadow-lg w-[80%] md:w-[70%] 
+               absolute top-40 md:top-52 left-1/2 -translate-x-1/2"
+      >
+
+    </div>
+
+  </div>
+</section>
+
+<!-- UI Templates -->
+<section class="py-12">
+    <h2 class="text-center text-3xl font-bold text-[#13157c] mb-8">
+        Save on UI Templates
+    </h2>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+
+        {% for theme in ui_kits %}
+            {% include "myapp/components/featured_wordpress.html" with theme=theme %}
+        {% endfor %}
+
+    </div>
+
+    <h2 class="text-center mt-10 text-3xl font-bold text-[#13157c] mb-8">
+        Weekly Bestseller
+    </h2>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+
+        {% for theme in weekly_bestsellers  %}
+            {% include "myapp/components/featured_wordpress.html" with theme=theme %}
+        {% endfor %}
+
+    </div>
+
+    <h2 class="text-center mt-10 text-3xl font-bold text-[#13157c] mb-8">
+        Top Bestseller
+    </h2>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+
+        {% for theme in bestseller_items  %}
+            {% include "myapp/components/featured_wordpress.html" with theme=theme %}
+        {% endfor %}
+
+    </div>
+
+    <h2 class="text-center mt-10 text-3xl font-bold text-[#13157c] mb-8">
+        Top Clean Items
+    </h2>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+
+        {% for theme in bestseller_items  %}
+            {% include "myapp/components/featured_wordpress.html" with theme=theme %}
+        {% endfor %}
+
+    </div>
+</section>
+
+<!-- Newsletter & Testimonial Section -->
+
+{% include "myapp/components/newsletter.html" %}
+
+{% endblock %}

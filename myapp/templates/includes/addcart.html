@@ -1,0 +1,41 @@
+<!-- GLOBAL ADD-TO-CART MODAL -->
+<div id="cart-modal"
+     class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+
+    <div class="bg-white rounded-2xl shadow-xl w-full max-w-md p-8 relative">
+
+        <button id="close-modal" class="absolute top-3 right-3 text-gray-500 text-2xl">
+            &times;
+        </button>
+
+        <div class="text-center">
+            <div class="text-4xl mb-2 text-green-600">✔</div>
+            <h2 class="text-xl font-bold mb-4">Item added to your cart</h2>
+
+            <img id="modal-image"
+                 class="w-24 h-24 rounded-full mx-auto shadow" />
+
+            <p id="modal-price" class="text-xl font-bold mt-3"></p>
+
+            <p class="text-gray-700 text-sm mt-1">License : Regular</p>
+            <p class="text-gray-700 text-sm">Support: 6 month support</p>
+
+            <div class="mt-6 flex justify-between">
+
+    <!-- KEEP BROWSING (redirect to homepage) -->
+    <a id="keep-browsing"
+       href="{% url 'home' %}"
+       class="px-4 py-2 rounded-lg bg-gray-200 hover:bg-gray-300">
+        Keep Browsing
+    </a>
+
+    <!-- GO TO CHECKOUT -->
+    <a href="{% url 'cart' %}"
+       class="px-4 py-2 rounded-lg bg-lime-600 text-white hover:bg-lime-700">
+        Go to Checkout
+    </a>
+</div>
+
+        </div>
+    </div>
+</div>

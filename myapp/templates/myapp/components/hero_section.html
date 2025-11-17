@@ -1,0 +1,110 @@
+{%load static%}
+<section class="bg-gray-100">
+  <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between px-6 py-10 gap-10">
+
+    <!-- LEFT TEXT SECTION -->
+    <div class="md:w-[38%] flex flex-col justify-center items-center text-center">
+
+      <!-- BADGE -->
+      <div class="mb-6 flex justify-center">
+        <div class="bg-gradient-to-b from-[#4C1CD8] to-white p-[2px] rounded-lg 
+                    shadow-[0_0_30px_rgba(91,33,182,0.55)] animate-badgePulse">
+          <div class="bg-[#3B11D1] rounded-lg px-6 py-2 text-white font-semibold text-sm">
+            {{ hero.badge_text }}
+          </div>
+        </div>
+      </div>
+
+      <!-- TITLE -->
+      <h2 class="text-3xl md:text-5xl font-semibold mb-6 leading-snug text-center">
+        {{ hero.title }}<br>
+        <span class="text-4xl md:text-5xl font-extrabold 
+                     text-transparent bg-clip-text 
+                     bg-gradient-to-r from-[#3B3EEA] to-[#7A1CAC]">
+          {{ hero.highlight_text }}
+        </span>
+      </h2>
+
+      <!-- SUBTITLE -->
+      <p class="text-gray-700 text-lg mb-6 leading-relaxed max-w-md text-center">
+        {{ hero.subtitle }}
+      </p>
+
+      <!-- SEARCH BAR -->
+      <div class="flex items-center justify-center bg-white shadow-md border border-black 
+                  rounded-lg p-3 w-full max-w-md">
+        <i class="fa-solid fa-magnifying-glass text-lg text-gray-400"></i>
+
+        <input type="text"
+               placeholder="{{ hero.search_placeholder }}"
+               class="flex-grow px-3 py-3 text-gray-700 focus:outline-none text-center">
+
+        <button class="bg-[#76C01D] text-white font-semibold px-6 py-3 
+                       rounded-lg hover:bg-green-600 transition">
+          Search
+        </button>
+      </div>
+
+      <!-- STATS SECTION (centered row) -->
+      <div class="mt-10 flex justify-center items-center gap-6">
+
+        <!-- USERS STACK -->
+        <div class="flex items-center">
+          <div class="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-purple-500 border-2 border-cyan-300"></div>
+          <div class="w-10 h-10 -ml-3 rounded-full bg-gradient-to-br from-blue-500 to-purple-500 border-2 border-cyan-300"></div>
+          <div class="w-10 h-10 -ml-3 rounded-full bg-gradient-to-br from-blue-500 to-purple-500 border-2 border-cyan-300"></div>
+          <div class="w-10 h-10 -ml-3 rounded-full bg-gradient-to-br from-blue-500 to-purple-500 border-2 border-cyan-300"></div>
+        </div>
+
+        <!-- USERS TEXT -->
+        <div class="flex flex-col items-center">
+          <p class="text-lg font-bold">12M+ Users</p>
+          <p class="text-gray-600 text-sm -mt-1">Trusted worldwide</p>
+        </div>
+
+        <!-- RATING -->
+        <div class="flex items-center gap-4">
+          <div class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center">
+            <i class="fa-solid fa-clock text-green-600 text-xl"></i>
+          </div>
+
+          <div class="flex flex-col items-center">
+            <p class="text-lg font-bold">4.9/5 Rating</p>
+            <p class="text-gray-600 text-sm -mt-1">From 50k reviews</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+<!-- RIGHT HERO ART -->
+<div class="w-[48%] flex items-center justify-center">
+
+    <!-- MASTER WRAPPER (Controls everything) -->
+    <div class="relative w-[480px] h-[380px] -mt-6 -ml-10">
+
+        <!-- IMAGE 1 – Top Left -->
+        <img src="{{ hero.image1.url }}"
+             class="absolute w-[70%] top-0 left-[0px]
+                    rounded-xl shadow-xl z-30 animate-zoomPulse">
+
+        <!-- IMAGE 2 – Top Right -->
+        <img src="{{ hero.image2.url }}"
+             class="absolute w-[60%] top-[10px] -right-[100px]
+                    rounded-xl shadow-xl z-20 animate-floatUpDown">
+
+        <!-- IMAGE 4 – BIG CENTER -->
+        <img src="{{ hero.image4.url }}"
+             class="absolute w-full top-[120px] left-[60px] -translate-x-1/2
+                    rounded-2xl shadow-2xl z-50 animate-floatUpDown">
+
+        <!-- IMAGE 3 – Bottom Middle -->
+        <img src="{{ hero.image3.url }}"
+             class="absolute w-[70%] -bottom-[70px] left-[80px] -translate-x-1/2
+                    rounded-xl shadow-xl z-40 animate-zoomPulse">
+
+    </div>
+
+</div>
+  </div>
+</section>

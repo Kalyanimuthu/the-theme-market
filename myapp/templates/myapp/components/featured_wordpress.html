@@ -1,0 +1,63 @@
+{% load static%}
+<div class="bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300">
+
+    <!-- IMAGE -->
+    <img src="{{ theme.image.url }}"
+         class="w-full h-56 object-cover transform transition duration-500 ease-in-out hover:scale-110">
+
+    <!-- CONTENT -->
+    <div class="p-4 text-left">
+        <h3 class="font-semibold text-lg leading-tight">{{ theme.title }}</h3>
+        <p class="text-gray-500 text-sm leading-tight">by {{ theme.author }}</p>
+    </div>
+
+    <div class="border-t"></div>
+
+    <div class="px-4 pt-3 flex justify-between">
+
+        <!-- LEFT -->
+        <div class="text-left py-4">
+            <p class="font-bold text-lg leading-none">${{ theme.price }}</p>
+
+            <div class="flex items-center space-x-1 leading-none mt-1">
+                <div class="flex text-yellow-500 text-xl leading-none">
+                    {% for i in "12345" %}
+                        {% if forloop.counter <= theme.rating %}
+                            ★
+                        {% else %}
+                            <span class="text-gray-300">★</span>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+
+                <span class="text-gray-700 text-sm leading-none">{{ theme.rating }}</span>
+            </div>
+
+            <p class="text-gray-500 text-xs mt-1 leading-none">{{ theme.sales }} Sales</p>
+        </div>
+
+        <!-- RIGHT -->
+        <div class="flex items-center space-x-2">
+
+            <button type="button"
+        class="add-to-cart-btn flex items-center justify-center w-10 h-10 border rounded-lg 
+               hover:bg-gradient-to-r from-purple-500 to-blue-500 transition hover:text-white text-gray-700"
+        data-id="{{ theme.id }}"
+        data-image="{{ theme.image.url }}"
+        data-price="{{ theme.price }}">
+    <i class="fa-solid fa-cart-shopping text-lg"></i>
+</button>
+
+            
+
+            <a href="{{ theme.preview_url }}" target="_blank"
+               class="px-4 py-2 bg-white border rounded-lg hover:bg-gradient-to-r from-purple-500 to-blue-500 hover:text-white
+                      text-sm font-medium transition leading-none">
+                Live Preview
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
