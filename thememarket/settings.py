@@ -14,7 +14,16 @@ SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", "unsafe-default-local")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv("DJANGO_DEBUG", "False") == "True"
 
-ALLOWED_HOSTS = os.getenv("the-theme-market.onrender.com", "127.0.0.1,localhost").split(",")
+ALLOWED_HOSTS = [
+    "127.0.0.1",
+    "localhost",
+    "the-theme-market.onrender.com"
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://the-theme-market.onrender.com",
+]
+# ALLOWED_HOSTS = os.getenv("the-theme-market.onrender.com", "127.0.0.1,localhost").split(",")
 
 
 # Application definition
