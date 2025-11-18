@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "tailwindcss -i ./src/styles.css -o ./myapp/static/css/styles.css --watch",
-    "build": "tailwindcss -i ./src/styles.css -o ./myapp/static/css/styles.css --minify"
-  },
+  "dev": "tailwindcss -i ./src/styles.css -o ./static/css/styles.css --watch",
+  "build:css": "tailwindcss -i ./src/styles.css -o ./static/css/styles.css --minify"
+},
   "devDependencies": {
     "autoprefixer": "^10.4.22",
     "concurrently": "^9.2.1",

@@ -1,1 +1,1 @@
-web: gunicorn thememarket.wsgi:application
+web: gunicorn thememarket.wsgi --log-file -
